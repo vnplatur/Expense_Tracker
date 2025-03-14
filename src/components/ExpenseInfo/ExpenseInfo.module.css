@@ -14,13 +14,13 @@
 }
 
 .incomeExpenseContainer {
-  background-color: #fff;
+  background-color: #ffffff38;
   box-shadow: var(--box-shadow);
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  margin: 20px 0;
-  width: 100%;
+  margin: 20px 10px;
+  width: 80%;
 }
 
 .incomeExpenseContainer > div {

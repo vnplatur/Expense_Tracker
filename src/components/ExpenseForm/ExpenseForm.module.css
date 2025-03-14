@@ -1,5 +1,5 @@
 .form {
-  position: fixed;
+  position:absolute;
   left: 10rem;
   top: 60%;
   border: 1px solid gray;
@@ -22,6 +22,7 @@
   height: var(--input-height);
   border: 1px solid gray;
   padding-left: 0.5rem;
+  color: black;
 }
 
 .submitBtn {

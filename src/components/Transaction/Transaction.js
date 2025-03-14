@@ -3,7 +3,7 @@ import styles from "./Transaction.module.css";
 import EditImage from "../../images/edit.png";
 import DeleteImage from "../../images/trash-bin.png";
 
-const Transaction = ({ expense, deleteExpense, index, editExpense}) => {
+const Transaction = ({ expense, deleteExpense, index, changeExpenseToUpdate }) => {
   const [currentHoverIndex, setCurrentHoverIndex] = useState(null);
   return (
     <li
@@ -33,7 +33,12 @@ const Transaction = ({ expense, deleteExpense, index, editExpense}) => {
           }`}
         >
           {/* complete the onClick functionality of the following image */}
-          <div className={styles.edit} onClick={() => {editExpense(expense)}}>
+          <div
+            className={styles.edit}
+            onClick={() => {
+              changeExpenseToUpdate(expense);
+            }}
+          >
             <img src={EditImage} height="100%" alt="Edit" />
           </div>
           <div

@@ -4,10 +4,12 @@ import styles from "./ExpenseForm.module.css";
 const ExpenseForm = ({ addExpense,editingExpense,update }) => {
   const expenseTextInput = useRef();
   const expenseAmountInput = useRef();
+  console.log(editingExpense);
 
   // Use the useEffect hook here, to check if an expense is to be updated
   // If yes, the autofill the form values with the text and amount of the expense
   useEffect(()=>{
+    
    
     if(editingExpense){
   
@@ -27,9 +29,13 @@ const ExpenseForm = ({ addExpense,editingExpense,update }) => {
     const expense = {
       text: expenseText,
       amount: expenseAmount,
-      id: editingExpense?editingExpense.id:new Date().getTime(),
     };
     if(editingExpense){
+      const expense = {
+        text: expenseText,
+        amount: expenseAmount,
+        id: editingExpense.id
+      };
       update(expense);
       clearInput();
     }else{

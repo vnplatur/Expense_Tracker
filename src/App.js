@@ -47,6 +47,7 @@ const reducer = (state, action) => {
 function App() {
   const [state, dispatch] = useReducer(reducer, { expenses: [] });
   const [expenseToUpdate, setExpenseToUpdate] = useState(null);
+ 
 
   const getData = async () => {
     const snapshot = await getDocs(collection(db, "expenses"));
@@ -58,7 +59,7 @@ function App() {
     dispatch({ type: "GET_EXPENSES", payload: { expenses } });
     toast.success("Expenses retrived successfully.");
   };
-
+  console.log(expenseToUpdate)
   useEffect(() => {
     getData();
   }, []);
@@ -87,6 +88,8 @@ function App() {
   };
 
   const updateExpense = async (expense) => {
+    console.log(expense)
+    console.log(state.expenses)
     const expensePos = state.expenses
       .map(function (exp) {
         return exp.id;
@@ -106,15 +109,15 @@ function App() {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer theme="dark"/>
       <h2 className="mainHeading">Expense Tracker</h2>
       <div className="App">
         
         <ExpenseInfo expenses={state.expenses} />
         <ExpenseForm
           addExpense={addExpense}
-          expenseToUpdate={expenseToUpdate}
-          updateExpense={updateExpense}
+          editingExpense={expenseToUpdate}
+          update={updateExpense}
           resetExpenseToUpdate={resetExpenseToUpdate}
         />
         <div className="expenseContainer">
