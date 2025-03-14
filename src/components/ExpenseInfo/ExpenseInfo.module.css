@@ -8,6 +8,11 @@
   width: 100%;
 }
 
+.balance{
+  margin-left: 200px;
+  height: auto;
+}
+
 .incomeExpenseContainer {
   background-color: #fff;
   box-shadow: var(--box-shadow);

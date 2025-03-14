@@ -15,7 +15,7 @@ import { doc, collection, addDoc, setDoc, getDocs,deleteDoc } from "firebase/fir
 import { db } from "./firebaseInit";
 
 const reducer = (state, action) => {
-  const { payload } = action;
+  const { payload } = action; 
   switch (action.type) {
     case "GET_EXPENSES": {
       return {
@@ -109,6 +109,8 @@ function App() {
       <ToastContainer />
       <h2 className="mainHeading">Expense Tracker</h2>
       <div className="App">
+        
+        <ExpenseInfo expenses={state.expenses} />
         <ExpenseForm
           addExpense={addExpense}
           expenseToUpdate={expenseToUpdate}
@@ -116,7 +118,7 @@ function App() {
           resetExpenseToUpdate={resetExpenseToUpdate}
         />
         <div className="expenseContainer">
-          <ExpenseInfo expenses={state.expenses} />
+          
           <ExpenseList
             expenses={state.expenses}
             deleteExpense={deleteExpense}
